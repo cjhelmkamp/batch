@@ -1,6 +1,18 @@
 @echo off
 SETLOCAL EnableDelayedExpansion
 echo.
+REM**************************************************************************** 
+REM Desc: This script is supposed to add routes after a VPN connection
+REM	is established. I copied the script to a share on the VPN server
+REM	and created a task to look for the establishment of the VPN 
+REM	connection. When the task is triggered it runs the script from 
+REM	the share on the server. Having the script in a central location
+REM	allowes for easier updates and not relying on group policy to push
+REM	to remote workers.
+REM
+REM	Trigger: Application System Provider Name='RasClient' and EventID=20225
+REM
+REM**************************************************************************** 
 REM put your VPN connection name here
 set myvpn="VPN NAME"
 REM List of networks
